@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# List of all Shadcn UI components
+components=(
+  "accordion"
+  "alert"
+  "alert-dialog"
+  "aspect-ratio"
+  "avatar"
+  "badge"
+  "breadcrumb"
+  "button"
+  "calendar"
+  "card"
+  "carousel"
+  "checkbox"
+  "collapsible"
+  "command"
+  "context-menu"
+  "dialog"
+  "drawer"
+  "dropdown-menu"
+  "form"
+  "hover-card"
+  "input"
+  "label"
+  "menubar"
+  "navigation-menu"
+  "pagination"
+  "popover"
+  "progress"
+  "radio-group"
+  "resizable"
+  "scroll-area"
+  "select"
+  "separator"
+  "sheet"
+  "skeleton"
+  "slider"
+  "sonner"
+  "switch"
+  "table"
+  "tabs"
+  "textarea"
+  "toast"
+  "toggle"
+  "toggle-group"
+  "tooltip"
+)
+
+echo "Installing Shadcn UI components..."
+
+for component in "${components[@]}"; do
+  echo "Installing $component..."
+  npx --yes shadcn@latest add "$component" --yes --overwrite || echo "Failed to install $component"
+done
+
+echo "Done!"
