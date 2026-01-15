@@ -4,7 +4,7 @@ import { radiusTokens } from '@/data/designTokens'
 import { Copy } from 'lucide-react'
 
 const meta: Meta = {
-  title: 'Design Tokens/Border Radius',
+  title: 'Foundations/Border Radius',
   parameters: {
     layout: 'padded',
     docs: {

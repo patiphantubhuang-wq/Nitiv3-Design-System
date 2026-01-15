@@ -3,9 +3,11 @@
   "outputDirectory": "storybook-static",
   "installCommand": "npm install --legacy-peer-deps",
   "framework": null,
+  "cleanUrls": false,
+  "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!assets|sb-common-assets|sb-manager|sb-addons|iframe\\.html|index\\.json|project\\.json|favicon\\.svg|.*\\.(js|css|json|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot)).*)",
       "destination": "/index.html"
     }
   ],
@@ -43,6 +45,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/iframe.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
         }
       ]
     },

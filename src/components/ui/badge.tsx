@@ -8,6 +8,7 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
+        // Notification Badges (พื้นหลังเข้ม) - สำหรับ badge notification, new, counts
         default:
           "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
         secondary:
@@ -15,6 +16,17 @@ const badgeVariants = cva(
         destructive:
           "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
         outline: "text-foreground",
+        // Status Badges (พื้นหลังอ่อน) - สำหรับแสดงสถานะ
+        "status-success":
+          "border-transparent bg-status-success text-status-success-foreground",
+        "status-warning":
+          "border-transparent bg-status-warning text-status-warning-foreground",
+        "status-error":
+          "border-transparent bg-status-error text-status-error-foreground",
+        "status-info":
+          "border-transparent bg-status-info text-status-info-foreground",
+        "status-pending":
+          "border-transparent bg-status-pending text-status-pending-foreground",
       },
     },
     defaultVariants: {

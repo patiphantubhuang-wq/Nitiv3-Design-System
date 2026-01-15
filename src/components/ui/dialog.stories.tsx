@@ -11,7 +11,7 @@ import {
 import { Button } from './button'
 
 const meta: Meta<typeof Dialog> = {
-  title: 'Components/UI/Dialog',
+  title: 'Overlay & Containers/Dialog',
   component: Dialog,
   parameters: {
     layout: 'centered',
@@ -26,19 +26,19 @@ export const Default: Story = {
   render: () => (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Open Dialog</Button>
+        <Button>เปิด Dialog</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
+          <DialogTitle>คุณแน่ใจหรือไม่?</DialogTitle>
           <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            การดำเนินการนี้ไม่สามารถย้อนกลับได้ การดำเนินการนี้จะลบบัญชีของคุณอย่างถาวร
+            และลบข้อมูลของคุณออกจากเซิร์ฟเวอร์ของเรา
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button variant="outline">Cancel</Button>
-          <Button variant="destructive">Delete</Button>
+          <Button variant="outline">ยกเลิก</Button>
+          <Button variant="destructive">ลบ</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
@@ -49,29 +49,29 @@ export const Simple: Story = {
   render: () => (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
+        <Button variant="outline">แก้ไขโปรไฟล์</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Edit Profile</DialogTitle>
+          <DialogTitle>แก้ไขโปรไฟล์</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            ทำการเปลี่ยนแปลงโปรไฟล์ของคุณที่นี่ คลิกบันทึกเมื่อคุณทำเสร็จแล้ว
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <label htmlFor="name" className="text-right">
-              Name
+              ชื่อ
             </label>
             <input
               id="name"
-              defaultValue="John Doe"
+              defaultValue="ชื่อ นามสกุล"
               className="col-span-3 rounded-md border border-input bg-background px-3 py-2"
             />
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit">Save changes</Button>
+          <Button type="submit">บันทึกการเปลี่ยนแปลง</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

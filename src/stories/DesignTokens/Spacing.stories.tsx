@@ -4,7 +4,7 @@ import { spacingTokens } from '@/data/designTokens'
 import { Copy } from 'lucide-react'
 
 const meta: Meta = {
-  title: 'Design Tokens/Spacing',
+  title: 'Foundations/Spacing',
   parameters: {
     layout: 'padded',
     docs: {

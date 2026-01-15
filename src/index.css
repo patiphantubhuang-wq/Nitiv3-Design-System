@@ -1,47 +1,160 @@
+/**
+ * Main CSS Entry Point
+ * 
+ * ไฟล์นี้เป็น entry point สำหรับ Tailwind CSS
+ * ประกอบด้วย Design Foundations (Global Infrastructure)
+ * 
+ * โครงสร้าง CSS:
+ * - index.css                         → Primitive Colors + Universal Tokens
+ * - themes/base.css                   → ตัวแม่ (Neutral)
+ * - themes/{juristic,guard,admin}.css → Product overrides
+ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Colors - Light Mode - Yellow Theme */
-    --background: 0 0% 100%;
-    --foreground: 20 14.3% 4.1%;
-    --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
-    --primary: 47.9 95.8% 53.1%;
-    --primary-foreground: 26 83.3% 14.1%;
-    --secondary: 60 4.8% 95.9%;
-    --secondary-foreground: 24 9.8% 10%;
-    --muted: 60 4.8% 95.9%;
-    --muted-foreground: 25 5.3% 44.7%;
-    --accent: 60 4.8% 95.9%;
-    --accent-foreground: 24 9.8% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 20 5.9% 90%;
-    --input: 20 5.9% 90%;
-    --ring: 47.9 95.8% 53.1%;
-    --radius: 0.5rem;
+    /* ========================================
+     * DESIGN TOKENS (ใช้ร่วมกันทุก theme)
+     * Token เหล่านี้ไม่เปลี่ยนตาม theme
+     * ======================================== */
+    
+    /* ========================================
+     * PRIMITIVE COLORS (Tailwind Color Scale)
+     * ใช้เป็นฐานสำหรับสร้าง Semantic Colors
+     * ======================================== */
+    
+    /* Red Scale */
+    --red-50: 0 85.7% 97.3%;
+    --red-100: 0 93.3% 94.1%;
+    --red-200: 0 96.3% 89.4%;
+    --red-300: 0 94.6% 82.7%;
+    --red-400: 0 91.7% 71.8%;
+    --red-500: 0 84.2% 60.2%;
+    --red-600: 0 72.2% 50.6%;
+    --red-700: 0 73.7% 41.8%;
+    --red-800: 0 70% 35.3%;
+    --red-900: 0 62.8% 30.6%;
 
-    /* Typography */
+    /* Blue Scale */
+    --blue-50: 213.8 100% 96.9%;
+    --blue-100: 214.3 94.6% 92.7%;
+    --blue-200: 213.3 96.9% 87.3%;
+    --blue-300: 211.7 96.4% 78.4%;
+    --blue-400: 213.1 93.9% 67.8%;
+    --blue-500: 217.2 91.2% 59.8%;
+    --blue-600: 221.2 83.2% 53.3%;
+    --blue-700: 224.3 76.3% 48%;
+    --blue-800: 225.9 70.7% 40.2%;
+    --blue-900: 224.4 64.3% 32.9%;
+
+    /* Green Scale */
+    --green-50: 138.5 76.5% 96.7%;
+    --green-100: 140.6 84.2% 92.5%;
+    --green-200: 141 78.9% 85.1%;
+    --green-300: 141.7 76.6% 73.1%;
+    --green-400: 141.9 69.2% 58%;
+    --green-500: 142.1 70.6% 45.3%;
+    --green-600: 142.1 76.2% 36.3%;
+    --green-700: 142.4 71.8% 29.2%;
+    --green-800: 142.8 64.2% 24.1%;
+    --green-900: 143.8 61.2% 20.2%;
+
+    /* Yellow Scale */
+    --yellow-50: 54.5 91.7% 95.3%;
+    --yellow-100: 54.9 96.7% 88%;
+    --yellow-200: 52.8 98.3% 76.9%;
+    --yellow-300: 50.4 97.8% 63.5%;
+    --yellow-400: 47.9 95.8% 53.1%;
+    --yellow-500: 45.4 93.4% 47.5%;
+    --yellow-600: 40.6 96.1% 40.4%;
+    --yellow-700: 35.5 91.7% 32.9%;
+    --yellow-800: 31.8 81% 28.8%;
+    --yellow-900: 28.4 72.5% 25.7%;
+
+    /* Orange Scale */
+    --orange-50: 33.3 100% 96.5%;
+    --orange-100: 34.3 100% 91.8%;
+    --orange-200: 32.1 97.7% 83.1%;
+    --orange-300: 30.7 97.2% 72.4%;
+    --orange-400: 27 96% 61%;
+    --orange-500: 24.6 95% 53.1%;
+    --orange-600: 20.5 90.2% 48.2%;
+    --orange-700: 17.5 88.3% 40.4%;
+    --orange-800: 15 79.1% 33.7%;
+    --orange-900: 15.3 74.6% 27.8%;
+
+    /* Purple Scale */
+    --purple-50: 270 100% 98%;
+    --purple-100: 268.7 100% 95.5%;
+    --purple-200: 268.6 100% 91.8%;
+    --purple-300: 269.2 97.4% 85.1%;
+    --purple-400: 270 95.2% 75.3%;
+    --purple-500: 270.7 91% 65.1%;
+    --purple-600: 271.5 81.3% 55.9%;
+    --purple-700: 272.1 71.7% 47.1%;
+    --purple-800: 272.9 67.2% 39.4%;
+    --purple-900: 273.6 65.6% 32%;
+
+    /* Stone Scale */
+    --stone-50: 60 9.1% 97.6%;
+    --stone-100: 60 5.9% 95.9%;
+    --stone-200: 20 5.9% 90.8%;
+    --stone-300: 24 5.4% 83.9%;
+    --stone-400: 24 5.4% 64.9%;
+    --stone-500: 24 5.4% 46.1%;
+    --stone-600: 24 5.4% 34.1%;
+    --stone-700: 24 5.4% 26.7%;
+    --stone-800: 24 5.4% 16.9%;
+    --stone-900: 24 5.4% 11.2%;
+
+    /* Cyan Scale */
+    --cyan-50: 183 100% 96%;
+    --cyan-100: 185 96% 90%;
+    --cyan-200: 186 94% 82%;
+    --cyan-300: 187 92% 69%;
+    --cyan-400: 188 86% 53%;
+    --cyan-500: 189 94% 43%;
+    --cyan-600: 192 91% 36%;
+    --cyan-700: 193 82% 31%;
+    --cyan-800: 194 70% 27%;
+    --cyan-900: 196 64% 24%;
+
+    /* White */
+    --white: 0 0% 100%;
+
+    /* Slate Scale (Neutral Gray - สำหรับ Base Theme) */
+    --slate-50: 210 40% 98%;
+    --slate-100: 210 40% 96.1%;
+    --slate-200: 214.3 31.8% 91.4%;
+    --slate-300: 212.7 26.8% 83.9%;
+    --slate-400: 215 20.2% 65.1%;
+    --slate-500: 215.4 16.3% 46.9%;
+    --slate-600: 215.3 19.3% 34.5%;
+    --slate-700: 215.3 25% 26.7%;
+    --slate-800: 217.2 32.6% 17.5%;
+    --slate-900: 222.2 47.4% 11.2%;
+    
+    /* ========================================
+     * TYPOGRAPHY
+     * ======================================== */
     --font-sans: "IBM Plex Sans Thai Looped", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
     /* Font Sizes */
     --font-size-xs: 0.75rem;    /* 12px */
-    --font-size-sm: 0.875rem;  /* 14px */
-    --font-size-base: 1rem;    /* 16px */
-    --font-size-lg: 1.125rem;  /* 18px */
-    --font-size-xl: 1.25rem;   /* 20px */
-    --font-size-2xl: 1.5rem;   /* 24px */
-    --font-size-3xl: 1.875rem; /* 30px */
-    --font-size-4xl: 2.25rem;  /* 36px */
-    --font-size-5xl: 3rem;     /* 48px */
-    --font-size-6xl: 3.75rem;  /* 60px */
+    --font-size-sm: 0.875rem;   /* 14px */
+    --font-size-base: 1rem;     /* 16px */
+    --font-size-lg: 1.125rem;   /* 18px */
+    --font-size-xl: 1.25rem;    /* 20px */
+    --font-size-2xl: 1.5rem;    /* 24px */
+    --font-size-3xl: 1.875rem;  /* 30px */
+    --font-size-4xl: 2.25rem;   /* 36px */
+    --font-size-5xl: 3rem;      /* 48px */
+    --font-size-6xl: 3.75rem;   /* 60px */
 
     /* Font Weights */
     --font-weight-thin: 100;
@@ -70,7 +183,9 @@
     --letter-spacing-wider: 0.05em;
     --letter-spacing-widest: 0.1em;
 
-    /* Spacing - 8-point grid system */
+    /* ========================================
+     * SPACING (8-point grid)
+     * ======================================== */
     --spacing-0: 0;
     --spacing-1: 0.25rem;   /* 4px */
     --spacing-2: 0.5rem;    /* 8px */
@@ -86,10 +201,12 @@
     --spacing-24: 6rem;     /* 96px */
     --spacing-32: 8rem;     /* 128px */
 
-    /* Border Radius */
+    /* ========================================
+     * BORDER RADIUS
+     * ======================================== */
+    --radius: 0.5rem;       /* Default radius (ใช้ใน Tailwind rounded-md) */
     --radius-none: 0;
     --radius-sm: 0.125rem;  /* 2px */
-    --radius: 0.5rem;       /* 8px */
     --radius-md: 0.375rem;  /* 6px */
     --radius-lg: 0.5rem;    /* 8px */
     --radius-xl: 0.75rem;   /* 12px */
@@ -97,7 +214,9 @@
     --radius-3xl: 1.5rem;   /* 24px */
     --radius-full: 9999px;
 
-    /* Shadows */
+    /* ========================================
+     * SHADOWS
+     * ======================================== */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -106,45 +225,6 @@
     --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
     --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
     --shadow-none: 0 0 #0000;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    /* Colors - Dark Mode - Yellow Theme */
-    --background: 20 14.3% 4.1%;
-    --foreground: 60 9.1% 97.8%;
-    --card: 20 14.3% 4.1%;
-    --card-foreground: 60 9.1% 97.8%;
-    --popover: 20 14.3% 4.1%;
-    --popover-foreground: 60 9.1% 97.8%;
-    --primary: 47.9 95.8% 53.1%;
-    --primary-foreground: 26 83.3% 14.1%;
-    --secondary: 12 6.5% 15.1%;
-    --secondary-foreground: 60 9.1% 97.8%;
-    --muted: 12 6.5% 15.1%;
-    --muted-foreground: 24 5.4% 63.9%;
-    --accent: 12 6.5% 15.1%;
-    --accent-foreground: 60 9.1% 97.8%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 60 9.1% 97.8%;
-    --border: 12 6.5% 15.1%;
-    --input: 12 6.5% 15.1%;
-    --ring: 47.9 95.8% 53.1%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -158,16 +238,5 @@
   }
   a {
     @apply text-primary hover:text-primary/80 transition-colors;
-  }
-}
-
-
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }

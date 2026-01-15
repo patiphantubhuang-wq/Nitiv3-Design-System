@@ -4,7 +4,7 @@ import { shadowTokens } from '@/data/designTokens'
 import { Copy } from 'lucide-react'
 
 const meta: Meta = {
-  title: 'Design Tokens/Shadows',
+  title: 'Foundations/Shadows',
   parameters: {
     layout: 'padded',
     docs: {

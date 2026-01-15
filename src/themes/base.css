@@ -1,0 +1,166 @@
+/**
+ * Base Theme (Neutral / ตัวแม่)
+ * 
+ * กำหนด semantic token ทั้งหมดโดยตรง → Primitive
+ * ไม่มี layer กลาง ง่าย ตรงไปตรงมา
+ * 
+ * Architecture:
+ * - Semantic token (--primary, --secondary, etc.) อยู่ในไฟล์นี้
+ * - อ้างอิงค่าจาก primitive tokens ใน index.css โดยตรง
+ * - Theme อื่นจะ override เฉพาะ token ที่ต่าง
+ * 
+ * ⚠️ กฎสำคัญ:
+ * - ใช้เฉพาะสีจาก primitive tokens ใน index.css เท่านั้น
+ * - ห้ามสร้าง primitive ใหม่
+ */
+
+/* Default fallback: ใช้ base theme เมื่อไม่มี data-theme */
+:root:not([data-theme]),
+:root[data-theme="base"] {
+  /* ========================================
+   * CORE SEMANTIC COLORS - Light Mode
+   * ======================================== */
+  
+  /* Primary - Slate (Neutral dark) */
+  --primary: var(--slate-900);
+  --primary-foreground: var(--white);
+
+  /* Secondary - Stone light */
+  --secondary: var(--stone-100);
+  --secondary-foreground: var(--stone-900);
+
+  /* Muted - Stone 100 + Stone 700 (สีเดิม: 25 5.3% 44.7%) */
+  --muted: var(--stone-100);
+  --muted-foreground: var(--stone-700);
+
+  /* Accent */
+  --accent: var(--stone-100);
+  --accent-foreground: var(--stone-900);
+
+  /* Destructive - Red */
+  --destructive: var(--red-500);
+  --destructive-foreground: var(--white);
+
+  /* ========================================
+   * SURFACE COLORS
+   * ======================================== */
+  
+  --background: var(--white);
+  --foreground: var(--stone-900);
+
+  --card: var(--white);
+  --card-foreground: var(--stone-900);
+
+  --popover: var(--white);
+  --popover-foreground: var(--stone-900);
+
+  /* ========================================
+   * UTILITY COLORS
+   * ======================================== */
+  
+  --border: var(--stone-200);
+  --input: var(--stone-200);
+  --ring: var(--slate-900);
+
+  /* ========================================
+   * CHART COLORS
+   * ======================================== */
+  --chart-1: var(--slate-900);
+  --chart-2: var(--slate-700);
+  --chart-3: var(--slate-500);
+  --chart-4: var(--slate-300);
+  --chart-5: var(--slate-100);
+
+  /* ========================================
+   * SIDEBAR COLORS
+   * ======================================== */
+  --sidebar: var(--stone-50);
+  --sidebar-foreground: var(--stone-700);
+  --sidebar-primary: var(--stone-900);
+  --sidebar-primary-foreground: var(--white);
+  --sidebar-accent: var(--stone-100);
+  --sidebar-accent-foreground: var(--stone-900);
+  --sidebar-border: var(--stone-200);
+  --sidebar-ring: var(--slate-900);
+
+  /* ========================================
+   * STATUS COLORS
+   * ======================================== */
+  --status-success: var(--green-50);
+  --status-success-foreground: var(--green-700);
+  --status-warning: var(--orange-50);
+  --status-warning-foreground: var(--orange-700);
+  --status-error: var(--red-50);
+  --status-error-foreground: var(--red-700);
+  --status-info: var(--blue-50);
+  --status-info-foreground: var(--blue-700);
+  --status-pending: var(--yellow-50);
+  --status-pending-foreground: var(--yellow-700);
+
+  /* ========================================
+   * OTHER TOKENS (ใช้ร่วมกันทุก theme)
+   * ======================================== */
+  /* Note: --radius และ token อื่นๆ อยู่ใน index.css :root
+   * เพื่อให้ทุก theme ใช้ร่วมกัน ไม่ต้อง override */
+}
+
+/* ========================================
+ * DARK MODE - Base Theme
+ * ======================================== */
+.dark:not([data-theme]),
+.dark[data-theme="base"],
+[data-theme="base"].dark {
+  --primary: var(--slate-50);
+  --primary-foreground: var(--slate-900);
+
+  --secondary: var(--slate-800);
+  --secondary-foreground: var(--slate-50);
+
+  --muted: var(--slate-800);
+  --muted-foreground: var(--slate-300);
+
+  --accent: var(--slate-800);
+  --accent-foreground: var(--slate-50);
+
+  --destructive: var(--red-900);
+  --destructive-foreground: var(--red-50);
+
+  --background: var(--slate-900);
+  --foreground: var(--slate-50);
+
+  --card: var(--slate-900);
+  --card-foreground: var(--slate-50);
+
+  --popover: var(--slate-900);
+  --popover-foreground: var(--slate-50);
+
+  --border: var(--slate-800);
+  --input: var(--slate-800);
+  --ring: var(--slate-300);
+
+  --chart-1: var(--slate-50);
+  --chart-2: var(--slate-200);
+  --chart-3: var(--slate-400);
+  --chart-4: var(--slate-600);
+  --chart-5: var(--slate-800);
+
+  --sidebar: var(--slate-900);
+  --sidebar-foreground: var(--slate-100);
+  --sidebar-primary: var(--blue-700);
+  --sidebar-primary-foreground: var(--white);
+  --sidebar-accent: var(--slate-800);
+  --sidebar-accent-foreground: var(--slate-100);
+  --sidebar-border: var(--slate-800);
+  --sidebar-ring: var(--slate-300);
+
+  --status-success: var(--green-700);
+  --status-success-foreground: var(--green-50);
+  --status-warning: var(--orange-700);
+  --status-warning-foreground: var(--orange-50);
+  --status-error: var(--red-700);
+  --status-error-foreground: var(--red-50);
+  --status-info: var(--blue-700);
+  --status-info-foreground: var(--blue-50);
+  --status-pending: var(--yellow-700);
+  --status-pending-foreground: var(--yellow-50);
+}

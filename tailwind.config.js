@@ -54,7 +54,7 @@ export default {
   				foreground: 'hsl(var(--card-foreground))'
   			},
   			sidebar: {
-  				DEFAULT: 'hsl(var(--sidebar-background))',
+  				DEFAULT: 'hsl(var(--sidebar))',
   				foreground: 'hsl(var(--sidebar-foreground))',
   				primary: 'hsl(var(--sidebar-primary))',
   				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
@@ -62,6 +62,28 @@ export default {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
+  			},
+  			status: {
+  				success: {
+  					DEFAULT: 'hsl(var(--status-success))',
+  					foreground: 'hsl(var(--status-success-foreground))'
+  				},
+  				warning: {
+  					DEFAULT: 'hsl(var(--status-warning))',
+  					foreground: 'hsl(var(--status-warning-foreground))'
+  				},
+  				error: {
+  					DEFAULT: 'hsl(var(--status-error))',
+  					foreground: 'hsl(var(--status-error-foreground))'
+  				},
+  				info: {
+  					DEFAULT: 'hsl(var(--status-info))',
+  					foreground: 'hsl(var(--status-info-foreground))'
+  				},
+  				pending: {
+  					DEFAULT: 'hsl(var(--status-pending))',
+  					foreground: 'hsl(var(--status-pending-foreground))'
+  				}
   			}
   		},
   		borderRadius: {

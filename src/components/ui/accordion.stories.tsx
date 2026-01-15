@@ -6,11 +6,37 @@ import {
   AccordionTrigger,
 } from './accordion'
 
-const meta: Meta<typeof Accordion> = {
-  title: 'Components/UI/Accordion',
-  component: Accordion,
+const meta: Meta = {
+  title: 'Overlay & Containers/Accordion',
   parameters: {
     layout: 'padded',
+    docs: {
+      description: {
+        component: `
+Accordions allow users to expand and collapse sections of content. They are useful for organizing and hiding secondary information.
+
+## Usage
+
+Accordions should be used for:
+- FAQs and help sections
+- Collapsible content sections
+- Organizing information hierarchically
+- Reducing visual clutter
+
+## Components
+
+- **Accordion**: Container component (manages accordion state)
+- **AccordionItem**: Individual accordion item
+- **AccordionTrigger**: Clickable header that expands/collapses
+- **AccordionContent**: Expandable content panel
+
+## Types
+
+- **single**: Only one item can be open at a time
+- **multiple**: Multiple items can be open simultaneously
+        `,
+      },
+    },
   },
   tags: ['autodocs'],
 }
@@ -18,83 +44,92 @@ const meta: Meta<typeof Accordion> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+/**
+ * Interactive playground for the Accordion component.
+ * Click on different items to expand and collapse them.
+ */
+export const InteractivePlayground: Story = {
   render: () => (
     <Accordion type="single" collapsible className="w-full max-w-md">
       <AccordionItem value="item-1">
-        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionTrigger>มันสามารถเข้าถึงได้หรือไม่?</AccordionTrigger>
         <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
+          ได้ มันเป็นไปตามรูปแบบการออกแบบ WAI-ARIA
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
         <AccordionTrigger>Is it styled?</AccordionTrigger>
         <AccordionContent>
-          Yes. It comes with default styles that match the other components'
-          aesthetic.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger>Is it animated?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It's animated by default, but you can disable it if you prefer.
+          Yes. It comes with default styles that match the other components' aesthetic.
         </AccordionContent>
       </AccordionItem>
     </Accordion>
   ),
 }
 
-export const Multiple: Story = {
+/**
+ * All accordion patterns and use cases in one view.
+ * This story demonstrates various accordion configurations.
+ */
+export const Examples: Story = {
   render: () => (
-    <Accordion type="multiple" className="w-full max-w-md">
-      <AccordionItem value="item-1">
-        <AccordionTrigger>What is React?</AccordionTrigger>
-        <AccordionContent>
-          React is a JavaScript library for building user interfaces.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>What is TypeScript?</AccordionTrigger>
-        <AccordionContent>
-          TypeScript is a typed superset of JavaScript that compiles to plain
-          JavaScript.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger>What is Tailwind CSS?</AccordionTrigger>
-        <AccordionContent>
-          Tailwind CSS is a utility-first CSS framework for rapidly building
-          custom user interfaces.
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-  ),
-}
+    <div className="space-y-8">
+      {/* Single Selection (Collapsible) */}
+      <div className="space-y-4">
+        <h3 className="text-sm font-semibold text-foreground">Single Selection (Collapsible)</h3>
+        <Accordion type="single" collapsible className="w-full max-w-md">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>มันสามารถเข้าถึงได้หรือไม่?</AccordionTrigger>
+            <AccordionContent>
+              ได้ มันเป็นไปตามรูปแบบการออกแบบ WAI-ARIA
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>มันมีสไตล์หรือไม่?</AccordionTrigger>
+            <AccordionContent>
+              ได้ มันมาพร้อมกับสไตล์เริ่มต้นที่ตรงกับสุนทรียภาพของคอมโพเนนต์อื่นๆ
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger>มันมีแอนิเมชันหรือไม่?</AccordionTrigger>
+            <AccordionContent>
+              ได้ มันมีแอนิเมชันโดยค่าเริ่มต้น แต่คุณสามารถปิดใช้งานได้หากต้องการ
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
 
-export const ThaiContent: Story = {
-  render: () => (
-    <Accordion type="single" collapsible className="w-full max-w-md">
-      <AccordionItem value="item-1">
-        <AccordionTrigger>คำถามที่ 1</AccordionTrigger>
-        <AccordionContent>
-          นี่คือคำตอบสำหรับคำถามที่ 1 ระบบ Design System นี้ใช้ Shadcn/ui
-          เป็นพื้นฐาน
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>คำถามที่ 2</AccordionTrigger>
-        <AccordionContent>
-          นี่คือคำตอบสำหรับคำถามที่ 2 ใช้ Yellow Theme และ IBM Plex Sans Thai
-          Looped font
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger>คำถามที่ 3</AccordionTrigger>
-        <AccordionContent>
-          นี่คือคำตอบสำหรับคำถามที่ 3 Components ทั้งหมดใช้ Design Tokens
-          ที่กำหนดไว้แล้ว
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+      {/* Multiple Selection */}
+      <div className="space-y-4">
+        <h3 className="text-sm font-semibold text-foreground">Multiple Selection</h3>
+        <Accordion type="multiple" className="w-full max-w-md">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>React คืออะไร?</AccordionTrigger>
+            <AccordionContent>
+              React เป็นไลบรารี JavaScript สำหรับสร้างส่วนติดต่อผู้ใช้
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>TypeScript คืออะไร?</AccordionTrigger>
+            <AccordionContent>
+              TypeScript เป็น superset ที่มีประเภทของ JavaScript ที่คอมไพล์เป็น JavaScript ธรรมดา
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger>Tailwind CSS คืออะไร?</AccordionTrigger>
+            <AccordionContent>
+              Tailwind CSS เป็น CSS framework แบบ utility-first สำหรับสร้างส่วนติดต่อผู้ใช้ที่กำหนดเองอย่างรวดเร็ว
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Comprehensive examples of Accordion usage with single (collapsible) and multiple selection modes.',
+      },
+    },
+  },
 }

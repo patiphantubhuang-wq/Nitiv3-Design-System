@@ -1,0 +1,166 @@
+/**
+ * Guard Theme (Green)
+ * 
+ * สีเขียว - สำหรับ Guard Product
+ * 
+ * Architecture:
+ * - กำหนดสีครบทุก token เหมือน base
+ * - Override เฉพาะ primary, ring, chart, sidebar-ring เป็นสีเขียว
+ * - ใช้เฉพาะ primitive tokens จาก index.css
+ * 
+ * ⚠️ กฎสำคัญ:
+ * - ใช้เฉพาะ primitive tokens จาก index.css
+ * - ห้ามสร้าง primitive ใหม่
+ */
+
+:root[data-theme="guard"] {
+  /* ========================================
+   * CORE SEMANTIC COLORS - Light Mode (Green Theme)
+   * ======================================== */
+  
+  /* Primary - Green 500 */
+  --primary: var(--green-500);
+  --primary-foreground: var(--green-50);
+
+  /* Secondary - Stone 100 (เหมือน base) */
+  --secondary: var(--stone-100);
+  --secondary-foreground: var(--stone-900);
+
+  /* Muted - Stone 100 + Stone 700 (เหมือน base) */
+  --muted: var(--stone-100);
+  --muted-foreground: var(--stone-700);
+
+  /* Accent - Stone 100 (เหมือน base) */
+  --accent: var(--stone-100);
+  --accent-foreground: var(--stone-900);
+
+  /* Destructive - Red 500 (เหมือน base) */
+  --destructive: var(--red-500);
+  --destructive-foreground: var(--white);
+
+  /* ========================================
+   * SURFACE COLORS (เหมือน base)
+   * ======================================== */
+  
+  --background: var(--white);
+  --foreground: var(--stone-900);
+
+  --card: var(--white);
+  --card-foreground: var(--stone-900);
+
+  --popover: var(--white);
+  --popover-foreground: var(--stone-900);
+
+  /* ========================================
+   * UTILITY COLORS
+   * ======================================== */
+  
+  --border: var(--stone-200);
+  --input: var(--stone-200);
+  --ring: var(--green-500);
+
+  /* ========================================
+   * CHART COLORS - Green tones
+   * ======================================== */
+  --chart-1: var(--green-500);
+  --chart-2: var(--green-400);
+  --chart-3: var(--green-300);
+  --chart-4: var(--green-200);
+  --chart-5: var(--green-50);
+
+  /* ========================================
+   * SIDEBAR COLORS (เหมือน base)
+   * ======================================== */
+  --sidebar: var(--stone-50);
+  --sidebar-foreground: var(--stone-700);
+  --sidebar-primary: var(--stone-900);
+  --sidebar-primary-foreground: var(--white);
+  --sidebar-accent: var(--stone-100);
+  --sidebar-accent-foreground: var(--stone-900);
+  --sidebar-border: var(--stone-200);
+  --sidebar-ring: var(--green-500);
+
+  /* ========================================
+   * STATUS COLORS (เหมือน base)
+   * ======================================== */
+  --status-success: var(--green-50);
+  --status-success-foreground: var(--green-700);
+  --status-warning: var(--orange-50);
+  --status-warning-foreground: var(--orange-700);
+  --status-error: var(--red-50);
+  --status-error-foreground: var(--red-700);
+  --status-info: var(--blue-50);
+  --status-info-foreground: var(--blue-700);
+  --status-pending: var(--yellow-50);
+  --status-pending-foreground: var(--yellow-700);
+}
+
+/* ========================================
+ * DARK MODE - Guard Theme
+ * ======================================== */
+.dark[data-theme="guard"],
+[data-theme="guard"].dark {
+  /* Primary - Green (same in dark) */
+  --primary: var(--green-500);
+  --primary-foreground: var(--green-50);
+
+  /* Secondary - Dark mode */
+  --secondary: var(--slate-800);
+  --secondary-foreground: var(--slate-50);
+
+  /* Muted - Dark mode */
+  --muted: var(--slate-800);
+  --muted-foreground: var(--slate-300);
+
+  /* Accent - Dark mode */
+  --accent: var(--slate-800);
+  --accent-foreground: var(--slate-50);
+
+  /* Destructive - Dark mode */
+  --destructive: var(--red-900);
+  --destructive-foreground: var(--red-50);
+
+  /* Surface Colors - Dark mode */
+  --background: var(--slate-900);
+  --foreground: var(--slate-50);
+
+  --card: var(--slate-900);
+  --card-foreground: var(--slate-50);
+
+  --popover: var(--slate-900);
+  --popover-foreground: var(--slate-50);
+
+  /* Utility Colors - Dark mode */
+  --border: var(--slate-800);
+  --input: var(--slate-800);
+  --ring: var(--green-500);
+
+  /* Chart Colors */
+  --chart-1: var(--green-500);
+  --chart-2: var(--green-400);
+  --chart-3: var(--green-300);
+  --chart-4: var(--green-200);
+  --chart-5: var(--green-50);
+
+  /* Sidebar Colors - Dark mode */
+  --sidebar: var(--slate-900);
+  --sidebar-foreground: var(--slate-100);
+  --sidebar-primary: var(--blue-700);
+  --sidebar-primary-foreground: var(--white);
+  --sidebar-accent: var(--slate-800);
+  --sidebar-accent-foreground: var(--slate-100);
+  --sidebar-border: var(--slate-800);
+  --sidebar-ring: var(--green-500);
+
+  /* Status Colors - Dark mode */
+  --status-success: var(--green-700);
+  --status-success-foreground: var(--green-50);
+  --status-warning: var(--orange-700);
+  --status-warning-foreground: var(--orange-50);
+  --status-error: var(--red-700);
+  --status-error-foreground: var(--red-50);
+  --status-info: var(--blue-700);
+  --status-info-foreground: var(--blue-50);
+  --status-pending: var(--yellow-700);
+  --status-pending-foreground: var(--yellow-50);
+}

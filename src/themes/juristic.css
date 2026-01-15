@@ -1,0 +1,175 @@
+/**
+ * Juristic Theme (Yellow)
+ * 
+ * สีเหลือง - สำหรับ Juristic Product (สีเดิมของระบบ)
+ * 
+ * Architecture:
+ * - กำหนดสีครบทุก token เหมือนเดิม (ก่อนแยก theme)
+ * - ใช้เฉพาะ primitive tokens จาก index.css
+ * - สีเหล่านี้เป็นสีเดิมที่ใช้ในระบบก่อน refactoring
+ * 
+ * ⚠️ กฎสำคัญ:
+ * - ใช้เฉพาะ primitive tokens จาก index.css
+ * - ห้ามสร้าง primitive ใหม่
+ * 
+ * สีเดิมที่ใช้ (จาก designTokens.ts):
+ * - Primary: Yellow 400 (47.9 95.8% 53.1%)
+ * - Primary Foreground: Yellow 900 (28.4 72.5% 25.7%) - ใกล้เคียงกับ 26 83.3% 14.1%
+ * - Ring: Yellow 400
+ * - Secondary, Muted, Accent: Stone 100/900 (เหมือนเดิม)
+ * - Background, Foreground, Card, Popover: White/Stone 900 (เหมือนเดิม)
+ * - Border, Input: Stone 200 (เหมือนเดิม)
+ * - Destructive: Red 500 (เหมือนเดิม)
+ */
+
+:root[data-theme="juristic"] {
+  /* ========================================
+   * CORE SEMANTIC COLORS - Light Mode (Yellow Theme)
+   * ======================================== */
+  
+  /* Primary - Yellow 400 (สีเดิม) */
+  --primary: var(--yellow-400);
+  --primary-foreground: var(--yellow-900);
+
+  /* Secondary - Stone 100 (เหมือนเดิม) */
+  --secondary: var(--stone-100);
+  --secondary-foreground: var(--stone-900);
+
+  /* Muted - Stone 100 + Stone 700 (เหมือนเดิม) */
+  --muted: var(--stone-100);
+  --muted-foreground: var(--stone-700);
+
+  /* Accent - Stone 100 (เหมือนเดิม) */
+  --accent: var(--stone-100);
+  --accent-foreground: var(--stone-900);
+
+  /* Destructive - Red 500 (เหมือนเดิม) */
+  --destructive: var(--red-500);
+  --destructive-foreground: var(--white);
+
+  /* ========================================
+   * SURFACE COLORS (เหมือนเดิม)
+   * ======================================== */
+  
+  --background: var(--white);
+  --foreground: var(--stone-900);
+
+  --card: var(--white);
+  --card-foreground: var(--stone-900);
+
+  --popover: var(--white);
+  --popover-foreground: var(--stone-900);
+
+  /* ========================================
+   * UTILITY COLORS
+   * ======================================== */
+  
+  --border: var(--stone-200);
+  --input: var(--stone-200);
+  --ring: var(--yellow-400);
+
+  /* ========================================
+   * CHART COLORS - Yellow tones
+   * ======================================== */
+  --chart-1: var(--yellow-400);
+  --chart-2: var(--yellow-300);
+  --chart-3: var(--orange-400);
+  --chart-4: var(--orange-500);
+  --chart-5: var(--cyan-600);
+
+  /* ========================================
+   * SIDEBAR COLORS (เหมือนเดิม)
+   * ======================================== */
+  --sidebar: var(--stone-50);
+  --sidebar-foreground: var(--stone-700);
+  --sidebar-primary: var(--stone-900);
+  --sidebar-primary-foreground: var(--white);
+  --sidebar-accent: var(--stone-100);
+  --sidebar-accent-foreground: var(--stone-900);
+  --sidebar-border: var(--stone-200);
+  --sidebar-ring: var(--yellow-400);
+
+  /* ========================================
+   * STATUS COLORS (เหมือนเดิม)
+   * ======================================== */
+  --status-success: var(--green-50);
+  --status-success-foreground: var(--green-700);
+  --status-warning: var(--orange-50);
+  --status-warning-foreground: var(--orange-700);
+  --status-error: var(--red-50);
+  --status-error-foreground: var(--red-700);
+  --status-info: var(--blue-50);
+  --status-info-foreground: var(--blue-700);
+  --status-pending: var(--yellow-50);
+  --status-pending-foreground: var(--yellow-700);
+}
+
+/* ========================================
+ * DARK MODE - Juristic Theme
+ * ======================================== */
+.dark[data-theme="juristic"],
+[data-theme="juristic"].dark {
+  /* Primary - Yellow (same in dark) */
+  --primary: var(--yellow-400);
+  --primary-foreground: var(--yellow-900);
+
+  /* Secondary - Dark mode */
+  --secondary: var(--slate-800);
+  --secondary-foreground: var(--slate-50);
+
+  /* Muted - Dark mode */
+  --muted: var(--slate-800);
+  --muted-foreground: var(--slate-300);
+
+  /* Accent - Dark mode */
+  --accent: var(--slate-800);
+  --accent-foreground: var(--slate-50);
+
+  /* Destructive - Dark mode */
+  --destructive: var(--red-900);
+  --destructive-foreground: var(--red-50);
+
+  /* Surface Colors - Dark mode */
+  --background: var(--slate-900);
+  --foreground: var(--slate-50);
+
+  --card: var(--slate-900);
+  --card-foreground: var(--slate-50);
+
+  --popover: var(--slate-900);
+  --popover-foreground: var(--slate-50);
+
+  /* Utility Colors - Dark mode */
+  --border: var(--slate-800);
+  --input: var(--slate-800);
+  --ring: var(--yellow-400);
+
+  /* Chart Colors */
+  --chart-1: var(--yellow-400);
+  --chart-2: var(--yellow-300);
+  --chart-3: var(--orange-400);
+  --chart-4: var(--orange-500);
+  --chart-5: var(--cyan-600);
+
+  /* Sidebar Colors - Dark mode */
+  --sidebar: var(--slate-900);
+  --sidebar-foreground: var(--slate-100);
+  --sidebar-primary: var(--blue-700);
+  --sidebar-primary-foreground: var(--white);
+  --sidebar-accent: var(--slate-800);
+  --sidebar-accent-foreground: var(--slate-100);
+  --sidebar-border: var(--slate-800);
+  --sidebar-ring: var(--yellow-400);
+
+  /* Status Colors - Dark mode */
+  --status-success: var(--green-700);
+  --status-success-foreground: var(--green-50);
+  --status-warning: var(--orange-700);
+  --status-warning-foreground: var(--orange-50);
+  --status-error: var(--red-700);
+  --status-error-foreground: var(--red-50);
+  --status-info: var(--blue-700);
+  --status-info-foreground: var(--blue-50);
+  --status-pending: var(--yellow-700);
+  --status-pending-foreground: var(--yellow-50);
+}
